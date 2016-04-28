@@ -1,0 +1,318 @@
+/* CSS declarations go here */
+body {
+  font-family: sans-serif;
+  background-color: #315481;
+  background-image: linear-gradient(to bottom, #ffb366, #990033 110%);
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 55px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+  min-height: 100%;
+  background: white;
+}
+
+header {
+  background: #d2edf4;
+  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  padding: 20px 15px 15px 15px;
+  position: relative;
+}
+
+
+#login-buttons {
+  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  display: inline-table;
+  padding: 15px;
+  border: 3px orange solid;
+}
+
+#lineChart {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+form {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  position: relative;
+}
+
+.new-task input {
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding-right: 80px;
+  font-size: 1em;
+}
+
+.new-task input:focus{
+  outline: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+.delete {
+  float: right;
+  font-weight: bold;
+  background: none;
+  font-size: 1em;
+  border: none;
+  position: relative;
+}
+
+li {
+  position: relative;
+  list-style: none;
+  padding: 15px;
+  border-bottom: #eee solid 1px;
+}
+
+li .text {
+  margin-left: 10px;
+}
+
+li.checked {
+  color: #888;
+}
+
+li.checked .text {
+  text-decoration: line-through;
+}
+
+li.private {
+  background: #eee;
+  border-color: #ddd;
+}
+
+header .hide-completed {
+  float: right;
+}
+
+.toggle-private {
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  li {
+    padding: 12px 15px;
+  }
+
+  .search {
+    width: 150px;
+    clear: both;
+  }
+
+  .new-task input {
+    padding-bottom: 5px;
+  }
+}
+
+table {
+    border: 2px solid;
+    border-collapse: color;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #FFE0DA}
+
+.navbar {
+  color:black;
+}
+/*This is for the navigation bar*/
+ul.navbar {
+  /*list-style-type: none;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*overflow: hidden;*/
+  background-image: linear-gradient(to bottom right, #1D4350, #d0edf5 100%);;
+}
+input[type="submit"] {
+  font-size: 1em;
+  padding: 5px;
+  color: black;
+  border: 2px solid #000000;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+button {
+  font-size: 1em;
+  padding: 5px;
+  color: black;
+  border: 2px solid #000000;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+button:hover {
+  background: #FFE0DA;
+}
+
+/*This is for the properties of the tabs */
+ul.navbar li a {
+  /*display: inline-block;*/
+  color: black;
+  text-align: center;
+  /*padding: 14px 16px;*/
+  /*text-decoration: none;*/
+  transition: 0.3s;
+  /*font-size: 10px;*/
+}
+
+
+/*When you hover over a tab*/
+ul.navbar li a:hover {background-color: black;}
+
+.tab-content{
+  margin-top: 11%;
+  margin-bottom:10%;
+}
+#home img {
+  margin-left: 35%;
+  width: 30%;
+}
+#allergies table {
+  font-size: 15px;
+}
+
+#medicalhistory img {
+  width:100%;
+}
+#medications table {
+  font-size: 15px;
+}
+
+#labtests img{
+  border: 2px black solid;
+}
+.well {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      width: 500px;
+    }
+    table {
+      font-size: 10px;
+      line-height: 10px;
+    }
+    td, th {
+      width: 33.3%;
+    }
+    label {
+      margin-bottom: 10px;
+    }
+
+.axis path,
+  .axis line{
+    fill: none;
+    stroke: black;
+  }
+
+  .tick text{
+    font-size: 12px;
+  }
+
+  .line{
+    fill: none;
+    stroke: blue;
+    stroke-width: 2px;
+  }
+
+/*For Any Popups*/
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 130px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    margin-top:10%;
+    width: 70%;
+  }
+}

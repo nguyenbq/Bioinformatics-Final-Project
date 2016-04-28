@@ -1,0 +1,956 @@
+<body>
+
+
+
+  <div class="container">
+
+    <ul class="navbar navbar-default navbar-fixed-top">
+
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>                        
+
+          </button>
+
+
+
+          <a class="navbar-brand" href="#home" style="color:white; font-size:25px"><b>Panacea</b><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a>
+
+        </div>
+
+
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+          <ul class="nav navbar-nav">
+
+            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+
+            <li><a data-toggle="tab" href="#news">News</a></li>
+
+            <li><a data-toggle="tab" href="#vitals">Vitals</a></li>
+
+            <li><a data-toggle="tab" href="#allergies">Allergies</a></li>
+
+            <li><a data-toggle="tab" href="#vaccines">Vaccines</a></li>
+
+            <li><a data-toggle="tab" href="#medicalhistory">Medical History</a></li>
+
+            <li><a data-toggle="tab" href="#medications">Medications</a></li>
+
+            <li><a data-toggle="tab" href="#labtests">Lab Tests</a></li>
+
+            <li><a data-toggle="tab" href="#notes">Notes</a></li>
+
+            <li><a data-toggle="tab" href="#referrals">Referrals</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </ul>
+
+
+
+
+
+    <div class="tab-content" style="padding-left:16px;padding-right:16px">
+
+      <div id="home" class="tab-pane fade in active">
+
+
+
+        <h1>Hello</h1>
+
+        <div>{{> loginButtons}}</div>
+
+
+
+        <p>
+
+          Welcome to the Home Page of the Panacea universal EHR application! Panacea is available to all physicians and practicing medical staff to access. It's also the easiest place for patients to retrieve their own personal records and be a part of the new age of "Personal Medicine."
+
+        </p>
+
+
+
+        <img src="http://www.amsa.org/wp-content/uploads/2015/03/AMSA_logo_shield-260x300.png">
+
+
+
+      </div>
+
+
+
+      <div id="news" class="tab-pane fade">
+
+
+        <h2>News</h2>
+
+
+
+        <p id="date"></p>
+
+
+
+        <ul>
+
+
+
+          <li><a href="http://www.medpagetoday.com/Cardiology" target=_blank>Cardiovascular</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/Dermatology" target=_blank>Dermatology</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/EmergencyMedicine" target=_blank>Emergency Medicine</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/OBGYN" target=_blank>OB/Gyn</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/Orthopedics" target=_blank>Orthopedics</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/PainManagement" target=_blank>Pain Management</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/PrimaryCare" target=_blank>Primary Care</a></li>
+
+
+
+          <li><a href="http://www.medpagetoday.com/Surgery" target=_blank>Surgery</a></li>
+
+
+
+        </ul>
+
+
+
+      </div>
+
+
+
+      <div id="vitals" class="tab-pane fade">
+
+
+        {{#if currentUser}}
+        <h2>My Vitals</h2>
+
+
+
+        <br>
+
+        <h4><b>BP</b></h4>
+
+
+
+        <form action="action_page.php">
+
+          mmHg:
+
+          <input type="number" name="quantity" min="1" max="500">
+
+          <input type="submit">
+
+        </form>
+
+
+
+
+
+        <br>
+
+        <h5><b>Past BP Records:</b></h5>
+
+        <button type="button" onclick="alert('Youre still healthy!')">Blood Pressure: 121/76 mmHg 03/15/16</button>
+
+        <button type="button" onclick="alert('Youre still healthy!')">Blood Pressure: 128/75 mmHg 03/15/16</button>
+
+        <button type="button" onclick="alert('Youre Dead!')">Blood Pressure: 90/54 mmHg 03/16/16</button>
+
+
+
+        <br>
+
+        <h4><b>Height</b></h4>
+
+        <form action="aciton_page.php">
+
+          Feet:
+
+          <input type="number" name="quantity" min="1" max="7"> Inches:
+
+          <input type="number" name="quantity" min="1" max="11">
+
+          <input type="submit" value="Log">
+
+        </form>
+
+
+
+        <br>
+
+        <h4><b>Weight</b></h4>
+
+        <form action="action_page.php">
+
+          lbs:
+
+          <input type="number" name="quantity" min="1" max="1000">
+
+          <input type="submit">
+
+        </form>
+
+
+
+        <br>
+
+        <h4><b>Heart Rate</b></h4>
+
+        <form action="action_page.php">
+
+          bpm:
+
+          <input type="number" name="quantity" min="1" max="500">
+
+          <input type="submit">
+
+        </form>
+
+
+
+
+
+        <br>
+
+        <h4><b>BMI</b></h4>
+
+        {{> lineChart}}
+        {{/if}}
+
+
+
+      </div>
+
+
+
+
+
+      <div id="allergies" class="tab-pane fade">
+
+        <h2>Medication Allergy Information</h2>
+
+
+
+        <p>Think that you may be allergic to a prescription medication? The U.S. National Library of Medicine has composed a summary of common prescription allergies and their side effects for your consultation.</p>
+
+
+
+        <ul>
+
+        <li><a href="https://www.nlm.nih.gov/medlineplus/ency/article/000819.htm" class="btn btn-info" role="button">Drug Allergy Information</a></li>
+
+        </ul>
+
+
+
+        <br>
+        {{#if currentUser}}
+
+        <h1>My Documented Medication Allergies</h1>
+
+        <table style="width:100%">
+
+          <tr>
+
+            <th>Drug</th>
+
+            <th>Reaction Symptoms</th>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td>Penicillin</td>
+
+            <td>Breathing difficulties, wheezing, and dizziness</td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td>Amoxicillin</td>
+
+            <td>Skin rash & hives</td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td>Aspirin</td>
+
+            <td>Anaphylaxis & weak cough</td>
+
+          </tr>
+
+        </table>
+        {{/if}}
+
+
+
+        <br>
+
+        <h2>Diet Allergy Information</h2>
+
+
+
+        <p>Have questions about a certain food you want to eat? The Food Allergy Research & Education team has put together some handy resources located below.</p>
+
+
+
+        <ul>
+
+          <li><a href="https://www.foodallergy.org/food-labels" class="btn btn-info" role="button">How to Read Food Labels</a>
+
+          <a href="http://www.foodallergy.org/file/field-guide.pdf" class="btn btn-info" role="button">Food Allergy Field Guide</a></li></ul>
+
+
+
+        <br>
+        {{#if currentUser}}
+
+        <h1>My Documented Food Allergies</h1>
+
+        <table style="width:100%">
+
+          <tr>
+
+            <th>Food Item</th>
+
+            <th>Reaction Symptoms</th>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td>Peanuts</td>
+
+            <td>Anaphylaxis</td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td>Shellfish</td>
+
+            <td>Abdominal pain, nausea & indigestion</td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td>Soy</td>
+
+            <td>Hives, itchy skin & swollen tongue</td>
+
+          </tr>
+
+        </table>
+        {{/if}}
+
+
+
+      </div>
+
+
+
+
+
+      <div id="vaccines" class="tab-pane fade">
+
+
+
+        <h2>Vaccine History</h2>
+        {{#if currentUser}}
+
+
+
+        <img src="/images/vaccinechart.png">
+        {{/if}}
+
+
+
+        <h4><b>Immunization Information</b></h4>
+
+        <p>Not sure of when to be immunized? The CDC has provided helpful recommended Vaccine Schedule Guides for all ages:</p>
+
+
+
+        <ul>
+
+
+
+          <li><a href="http://www.cdc.gov/vaccines/parents/downloads/parent-ver-sch-0-6yrs.pdf" target=_blank>Infants through Children 6 Years Old</a></li>
+
+
+
+          <li><a href="http://www.cdc.gov/vaccines/who/teens/downloads/parent-version-schedule-7-18yrs.pdf" target=_blank>Children 7-18 Years Old</a></li>
+
+
+
+          <li><a href="http://www.cdc.gov/vaccines/schedules/downloads/adult/adult-schedule-easy-read.pdf" target=_blank>Adults 19 and Older</a></li>
+
+
+
+        </ul>
+
+
+
+      </div>
+
+
+
+
+
+      <div id="medicalhistory" class="tab-pane fade">
+
+
+
+        <h2>Family Medical History</h2>
+        {{#if currentUser}}
+
+        <img src="/images/pedigree.png">
+        {{/if}}
+
+
+
+      </div>
+
+
+
+
+
+      <div id="medications" class="tab-pane fade">
+
+        <h2>Prescriptions</h2>
+
+          <p>If you come across any questions about your prescriptions, do not hestitate to call your primary care physician.</p> 
+
+          <p>For refills, contact your local pharmacy.</p>
+
+          <a href="https://www.cvs.com/checkout/rx/rx_express_refill_container.jsp" class="btn btn-info" role="button">CVS Refill Request</a>
+
+          <a href="https://www.riteaid.com/pharmacy/services/prescription-refills" class="btn btn-info" role="button">Rite Aid Refill Request</a>
+
+
+
+        <h3>Medications Currently Taking</h3>
+        {{#if currentUser}}
+
+        <table style="width:100%">
+
+
+
+          <tr>
+
+
+
+            <th>Medications</th>
+
+
+
+            <th>Prescription Reason</th>
+
+
+
+            <th>Side Effects</th>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Hydrocodone</td>
+
+
+
+            <td>Reduce back pain near L3</td>
+
+
+
+            <td>Tinnitus</td>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Lisinopril</td>
+
+
+
+            <td>Regulate blood pressure</td>
+
+
+
+            <td>Drowsiness, mild rash on left arm</td>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Prilosec</td>
+
+
+
+            <td>Reduce heart burn</td>
+
+
+
+            <td>Mild nausea</td>
+
+
+
+          </tr>
+
+
+
+        </table>
+
+
+
+        <br><h3>Past Medications</h3>
+
+        <table style="width:100%">
+
+
+
+          <tr>
+
+
+
+            <th>Medications</th>
+
+
+
+            <th>Prescription Reason</th>
+
+
+
+            <th>Reason for Consumption Termination</th>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Oxycodone</td>
+
+
+
+            <td>Reduce back pain near L3</td>
+
+
+
+            <td>Sever somnolence & reduced nociceptor function</td>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Fioricet oral</td>
+
+
+
+            <td>Mild weekly migraines</td>
+
+
+
+            <td>Improved lifestyle, migraines are managed</td>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Micardis</td>
+
+
+
+            <td>Regulate high blood pressure</td>
+
+
+
+            <td>Intense back pain flares</td>
+
+
+
+          </tr>
+
+
+
+          <tr>
+
+
+
+            <td>Prevacid</td>
+
+
+
+            <td>Reduce heart burn</td>
+
+
+
+            <td>Severe headaches & dizziness</td>
+
+
+
+          </tr>
+
+
+
+        </table>
+        {{/if}}
+
+
+
+      </div>
+
+
+
+
+
+      <div id="labtests" class="tab-pane fade">
+
+
+
+        <h2>Test Results</h2>
+        {{#if currentUser}}
+
+
+
+        <br>
+
+        <h2>Blood Work</h2>
+
+
+
+        <div>
+
+          <a class="button" href="#popup1">Check Results</a>
+
+
+
+          <img style="width:30%" src="http://www.doghouseboxing.com/Media/ReM_Donaire_Blood_2.jpg" />
+
+
+
+          <div id="popup1" class="overlay">
+
+            <div class="popup">
+
+              <a class="close" href="#">&times;</a>
+
+              <div class="content">
+
+                <img style="width:100%" src="http://www.doghouseboxing.com/Media/ReM_Donaire_Blood_2.jpg" />
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <img style="width:30%; margin-left: 20px;" src="http://www.doghouseboxing.com/Media/ReM_Donaire_Blood_2.jpg" />
+
+        </div>
+
+        <br><h2>X-rays</h2>
+
+          <a class="button" href="#popup2">Check Results</a>
+
+          <img style="width:30%; margin-right: 20pxfloat:right" src="http://cdn.funkidslive.com/wp-content/uploads/2015/09/x-ray-hands.jpg" />          
+
+          
+
+          <div id="popup2" class="overlay">
+
+            <div class="popup">
+
+              <a class="close" href="#">&times;</a>
+
+              <div class="content">
+
+                <img style="width:100%" src="http://cdn.funkidslive.com/wp-content/uploads/2015/09/x-ray-hands.jpg" />
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <img style="width:30%; margin-left: 20px;" src="http://www.jacmp.org/index.php/jacmp/article/viewFile/3719/2571/37304" />
+
+
+
+        <br><h2>MRI</h2>
+
+          <a class="button" href="#popup3">Check Results</a>
+
+          <img style="width:30%; margin-right: 20pxfloat:right" src="http://images.wisegeek.com/head-mri.jpg" />          
+
+          
+
+          <div id="popup3" class="overlay">
+
+            <div class="popup">
+
+              <a class="close" href="#">&times;</a>
+
+              <div class="content">
+
+                <img style="width:100%" src="http://images.wisegeek.com/head-mri.jpg" />
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <img style="width:30%; margin-left: 20px;" src="https://timedotcom.files.wordpress.com/2014/06/182682597.jpg?quality=75\&strip=color&w=1100" />
+
+          {{/if}}
+
+      </div>
+
+
+
+
+
+      <div id="notes" class="tab-pane fade">
+
+        <header>
+
+          <h1>Notes ({{incompleteCount}})</h1>
+
+
+
+          <label class="hide-completed">
+
+          <input type="checkbox" />
+
+          Hide Checked Notes
+
+          </label> 
+
+
+
+        {{#if currentUser}}
+
+          <form class="new-task">
+
+            <input type="text" name="text" placeholder="What's On Your Mind?" />
+
+          </form>
+
+        {{/if}}
+
+        </header>
+
+
+
+        <ul>
+
+          {{#each tasks}}
+
+            {{> task}} 
+
+          {{/each}}
+
+        </ul>
+
+
+
+      </div>
+
+
+
+      <div id="referrals" class="tab-pane fade">
+
+        <h2>My Physicians</h2>
+        {{#if currentUser}}
+
+        <div class="chip">
+
+          <img src="http://worldcareintl.wpengine.netdna-cdn.com/wp-content/uploads/2015/11/DoctorMan.png" alt="Person" width="96" height="96" class="responsive-img">John Doe<span class="closebtn" onclick="this.parentElement.style.display='none'">×</span>
+
+        </div>
+
+
+
+        <div class="chip">
+
+          <img src="http://tehachapidoctors.com/wp-content/uploads/2015/10/Tehachapi-Doctor.png" alt="Person" width="96" height="96"> Jane Doe
+
+          <span class="closebtn" onclick="this.parentElement.style.display='none'">×</span>
+
+        </div>
+
+        
+
+        <br>
+
+        <p>Looking for a new doctor? Browse the local options below to choose a specialty that addresses your needs!</p>
+
+         
+
+         <h4>Chiropractic</h4>
+
+        <ul>
+
+        <li><a href="http://qualitychiro.com/" target=_blank>Chiropractic Solutions</a></li>
+
+        <li><a href="http://www.functionalchiro.com/" target=_blank>Nieder Chiropractic & Rehabilitation</a></li>
+
+        <li><a href="http://www.casonchiro.com/" target=_blank>Dr. Alan Cason Chiropractor</a></li>
+
+        <li><a href="http://www.shenandoahchiropractic.com/" target=_blank>Shenandoah Chiropractic</a></li>
+
+        </ul>
+
+
+
+        <h4>Optometry</h4>
+
+        <ul>
+
+        <li><a href="http://www.rockinghameyephysicians.com/" target=_blank>Rockingham Eye Physicians</a></li>
+
+        <li><a href="http://visionsource-blueridgeeyeassociates.com/" target=_blank>Blue Ridge Eye Associates</a></li>
+
+        <li><a href="http://shenandoaheyecare.com/" target=_blank>Shenandoah EyeCare</a></li>
+
+        </ul>
+
+
+
+        <h4>Orthopedic</h4>
+
+        <ul>
+
+        <li><a href="http://www.hessortho.com/" target=_blank>Hess Orthopaedic Center & Sports Medicine, PLC</a></li>
+
+        <li><a href="http://www.sentara.com/harrisonburg-virginia/medicalservices/services/orthopedics.aspx" target=_blank>RMH Orthopedics</a></li>
+
+        </ul>
+
+
+
+        <h4>Podiatry</h4>
+
+        <ul>
+
+        <li><a href="http://harrisonburgfootankle.com/" target=_blank>Harrisonburg Foot & Ankle Clinic</a></li>
+
+        <li><a href="http://www.harrisonburgfootcare.com/" target=_blank>Foot Care Center of Harrisonburg</a></li>
+
+        <li><a href="http://www.thomasthangtran.com/" target=_blank>Foot and Ankle Specialist - Thomas Thang Tran, DPM, PC</a></li>
+
+        </ul>
+
+
+
+        <h4>Primary Care</h4>
+
+        <ul>
+
+        <li><a href="http://harrisonburgfamilypractice.com/" target=_blank>Harrisonburg Family Practice</a></li>
+
+        <li><a href="http://www.rockinghamfamilyphysicians.com/" target=_blank>Rockingham Family Physicians</a></li>
+
+        <li><a href="http://www.sentara.com/harrisonburg-virginia/hospitalslocations/locations/sentara-rmh-south-main-health-center.aspx" target=_blank>Sentara RMH South Main Health Center</a></li>
+
+        </ul>
+        {{/if}}
+
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
+</body>

@@ -1,0 +1,50 @@
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+    <button class="delete">&times;</button>
+ 
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <!-- {{#if isOwner}}
+      <button class="toggle-private">
+        {{#if private}}
+          Private
+        {{else}}
+          Public
+        {{/if}}
+      </button>
+    {{/if}} -->
+ 
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+  </li>
+</template>
+
+<!-- Template for LineChart -->
+<template name="lineChart">
+    <svg id="lineChart">
+    </svg>
+    <!--<input type="button" id="add" value="Add a Value" />
+    <input type="button" id="remove" value="Remove a Value" />
+    <input type="button" id="randomize" value="Randomize Values" />-->
+</template>
+
+<!-- Template for LineChart -->
+<template name="bmiChart">
+  <h4>BMI Chart</h4>
+    <svg id="bmiChart">
+    </svg>
+</template>
+
+<!-- Template for VaccineTbl -->
+<template name="vaccinetbl">
+  <h4>Vaccination History</h4>
+  <svg id="vaccinetbl">
+  </svg>
+</template>
+
+<!-- Template for LineChart -->
+<template name="PedChart">
+  <h4>Pedigree Chart</h4>
+    <svg id="PedChart">
+    </svg>
+</template>
+
